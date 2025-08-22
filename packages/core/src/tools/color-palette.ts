@@ -35,7 +35,7 @@ export class ColorPaletteTool extends BaseDeclarativeTool<
 > {
   static readonly Name = 'color_palette';
 
-  constructor(config: Config) {
+  constructor(_config: Config) {
     super(
       ColorPaletteTool.Name,
       'Fashion Color Palette Generator',
@@ -109,11 +109,23 @@ export class ColorPaletteTool extends BaseDeclarativeTool<
     return result;
   }
 
-  private generateColorPalette(params: ColorPaletteParams) {
+  private generateColorPalette(params: ColorPaletteParams): Array<{
+    name: string;
+    hex: string;
+    rgb: string;
+    description: string;
+    usage: string;
+  }> {
     const count = params.color_count || 5;
     
     // Color palette databases based on inspiration
-    const inspirationPalettes: Record<string, any> = {
+    const inspirationPalettes: Record<string, Array<{
+      name: string;
+      hex: string;
+      rgb: string;
+      description: string;
+      usage: string;
+    }>> = {
       sunset: [
         { name: 'Golden Hour', hex: '#FFB347', rgb: '255, 179, 71', description: 'Warm golden orange', usage: 'Accent pieces, accessories' },
         { name: 'Coral Blush', hex: '#FF7F7F', rgb: '255, 127, 127', description: 'Soft coral pink', usage: 'Tops, dresses' },
@@ -172,7 +184,19 @@ export class ColorPaletteTool extends BaseDeclarativeTool<
     return palettes[params.palette_type as keyof typeof palettes] || palettes['Neutral'];
   }
 
-  private adjustForSeason(palette: any[], season: string) {
+  private adjustForSeason(palette: Array<{
+    name: string;
+    hex: string;
+    rgb: string;
+    description: string;
+    usage: string;
+  }>, _season: string): Array<{
+    name: string;
+    hex: string;
+    rgb: string;
+    description: string;
+    usage: string;
+  }> {
     // This would adjust colors based on seasonal trends
     // For now, return as-is
     return palette;
@@ -197,7 +221,13 @@ export class ColorPaletteTool extends BaseDeclarativeTool<
     return `This palette draws inspiration from "${inspiration}", capturing its essence through carefully selected colors that evoke the mood and atmosphere of the source. Each color has been chosen to work harmoniously with others while maintaining the authentic feel of the inspiration.`;
   }
 
-  private formatPaletteResults(palette: any[], harmony: string, notes: string, params: ColorPaletteParams): string {
+  private formatPaletteResults(palette: Array<{
+    name: string;
+    hex: string;
+    rgb: string;
+    description: string;
+    usage: string;
+  }>, harmony: string, notes: string, params: ColorPaletteParams): string {
     let result = `# Color Palette: ${params.inspiration}\n\n`;
     result += `**Type:** ${params.palette_type}\n`;
     result += `**Harmony:** ${harmony}\n\n`;

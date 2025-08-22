@@ -36,7 +36,7 @@ export class TrendAnalysisTool extends BaseDeclarativeTool<
 > {
   static readonly Name = 'trend_analysis';
 
-  constructor(config: Config) {
+  constructor(_config: Config) {
     super(
       TrendAnalysisTool.Name,
       'Fashion Trend Analysis',
@@ -129,7 +129,7 @@ export class TrendAnalysisTool extends BaseDeclarativeTool<
       'Footwear': ['Platform Sneakers', 'Combat Boots', 'Loafers'],
     };
 
-    const trends = (trendNames[params.category as keyof typeof trendNames] || ['Contemporary Styles']).map((name, index) => ({
+    const trends = (trendNames[params.category as keyof typeof trendNames] || ['Contemporary Styles']).map((name, _index) => ({
       name,
       confidence: 0.8 + (Math.random() * 0.2),
       description: `${name} are trending this ${params.season.toLowerCase()} with modern silhouettes and innovative designs.`,
@@ -157,7 +157,14 @@ export class TrendAnalysisTool extends BaseDeclarativeTool<
     ];
   }
 
-  private formatTrendResults(trends: any[], insights: string, recommendations: string[]): string {
+  private formatTrendResults(trends: Array<{
+    name: string;
+    confidence: number;
+    description: string;
+    colors: string[];
+    materials: string[];
+    target_audience: string;
+  }>, insights: string, recommendations: string[]): string {
     let result = `# Fashion Trend Analysis\n\n`;
     
     result += `## Key Trends\n`;

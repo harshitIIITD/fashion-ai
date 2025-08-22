@@ -1,20 +1,21 @@
-# Gemini CLI
+# Fashion AI CLI
 
-[![Gemini CLI CI](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml)
+[![Fashion AI CI](https://github.com/harshitIIITD/gemini-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/harshitIIITD/gemini-cli/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/npm/v/@google/gemini-cli)](https://www.npmjs.com/package/@google/gemini-cli)
-[![License](https://img.shields.io/github/license/google-gemini/gemini-cli)](https://github.com/google-gemini/gemini-cli/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/harshitIIITD/gemini-cli)](https://github.com/harshitIIITD/gemini-cli/blob/main/LICENSE)
 
-![Gemini CLI Screenshot](./docs/assets/gemini-screenshot.png)
+![Fashion AI CLI Screenshot](./docs/assets/gemini-screenshot.png)
 
-Gemini CLI is an open-source AI agent that brings the power of Gemini directly into your terminal. It provides lightweight access to Gemini, giving you the most direct path from your prompt to our model.
+Fashion AI CLI is an open-source AI agent that brings the power of Gemini directly into your terminal, specifically designed for fashion industry professionals. It provides lightweight access to AI-powered fashion tools, giving you the most direct path from your creative prompt to actionable fashion insights.
 
-## 🚀 Why Gemini CLI?
+## 🚀 Why Fashion AI CLI?
 
 - **🎯 Free tier**: 60 requests/min and 1,000 requests/day with personal Google account
-- **🧠 Powerful Gemini 2.5 Pro**: Access to 1M token context window
-- **🔧 Built-in tools**: Google Search grounding, file operations, shell commands, web fetching
-- **🔌 Extensible**: MCP (Model Context Protocol) support for custom integrations
-- **💻 Terminal-first**: Designed for developers who live in the command line
+- **🧠 Powerful Gemini 2.5 Pro**: Access to 1M token context window for complex fashion analysis
+- **🔧 Fashion-specific tools**: Trend analysis, color palette generation, market insights, design inspiration
+- **🎨 Industry expertise**: Built-in understanding of fashion seasons, color theory, and design principles
+- **🔌 Extensible**: MCP (Model Context Protocol) support for custom fashion integrations
+- **💻 Terminal-first**: Designed for fashion professionals who work efficiently in command line
 - **🛡️ Open source**: Apache 2.0 licensed
 
 ## 📦 Installation
@@ -25,7 +26,7 @@ Gemini CLI is an open-source AI agent that brings the power of Gemini directly i
 
 ```bash
 # Using npx (no installation required)
-npx https://github.com/google-gemini/gemini-cli
+npx https://github.com/harshitIIITD/gemini-cli
 ```
 
 #### Install globally with npm
@@ -75,23 +76,26 @@ npm install -g @google/gemini-cli@nightly
 
 ## 📋 Key Features
 
-### Code Understanding & Generation
+### Fashion Industry Analysis
 
-- Query and edit large codebases
-- Generate new apps from PDFs, images, or sketches using multimodal capabilities
-- Debug issues and troubleshoot with natural language
+- **Trend Analysis**: Get insights on seasonal fashion trends across different categories and markets
+- **Color Palette Generation**: Create harmonious color schemes based on inspiration sources and design principles
+- **Market Research**: Analyze fashion markets, demographics, and consumer behavior patterns
+- **Design Inspiration**: Generate creative concepts based on various aesthetic influences
 
-### Automation & Integration
+### Brand & Collection Development
 
-- Automate operational tasks like querying pull requests or handling complex rebases
-- Use MCP servers to connect new capabilities, including [media generation with Imagen, Veo or Lyria](https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio/tree/main/experiments/mcp-genmedia)
-- Run non-interactively in scripts for workflow automation
+- **Seasonal Planning**: Understand fashion calendar timing and seasonal appropriateness
+- **Target Market Analysis**: Insights for different demographics (Gen Z, Millennials, etc.)
+- **Sustainability Focus**: Promote eco-friendly fashion practices and materials
+- **Commercial Viability**: Balance creative vision with market demands
 
-### Advanced Capabilities
+### Fashion-Specific Automation
 
-- Ground your queries with built-in [Google Search](https://ai.google.dev/gemini-api/docs/grounding) for real-time information
-- Conversation checkpointing to save and resume complex sessions
-- Custom context files (GEMINI.md) to tailor behavior for your projects
+- **Style Guide Generation**: Create comprehensive brand and design guidelines
+- **Competitor Analysis**: Research and analyze fashion industry competitors
+- **Social Media Content**: Generate fashion-focused content for marketing
+- **Workflow Integration**: Connect with existing fashion industry tools via MCP
 
 ### GitHub Integration
 
@@ -173,44 +177,43 @@ For Google Workspace accounts and other authentication methods, see the [authent
 #### Start in current directory
 
 ```bash
-gemini
+fashion-ai
 ```
 
-#### Include multiple directories
+#### Analyze fashion trends
 
 ```bash
-gemini --include-directories ../lib,../docs
+fashion-ai -p "Analyze spring 2024 trends for women's apparel in North America"
 ```
 
-#### Use specific model
+#### Generate color palettes
 
 ```bash
-gemini -m gemini-2.5-flash
+fashion-ai -p "Create a color palette inspired by sunset for summer collection"
 ```
 
-#### Non-interactive mode for scripts
+#### Fashion market research
 
 ```bash
-gemini -p "Explain the architecture of this codebase"
+fashion-ai -p "Research Gen Z preferences for sustainable fashion"
 ```
 
 ### Quick Examples
 
-#### Start a new project
+#### Start a new collection concept
 
 ```bash
-cd new-project/
-gemini
-> Write me a Discord bot that answers questions using a FAQ.md file I will provide
+cd new-collection/
+fashion-ai
+> Create a sustainable summer collection concept inspired by ocean themes
 ```
 
-#### Analyze existing code
+#### Analyze current trends
 
 ```bash
-git clone https://github.com/google-gemini/gemini-cli
-cd gemini-cli
-gemini
-> Give me a summary of all of the changes that went in yesterday
+cd fashion-brand/
+fashion-ai
+> Give me a trend analysis for fall 2024 luxury accessories with color palette suggestions
 ```
 
 ## 📚 Documentation

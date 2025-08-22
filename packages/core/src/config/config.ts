@@ -26,6 +26,7 @@ import { MemoryTool, setGeminiMdFilename } from '../tools/memoryTool.js';
 import { WebSearchTool } from '../tools/web-search.js';
 import { TrendAnalysisTool } from '../tools/trend-analysis.js';
 import { ColorPaletteTool } from '../tools/color-palette.js';
+import { SizeConversionTool } from '../tools/size-conversion.js';
 import { GeminiClient } from '../core/client.js';
 import { FileDiscoveryService } from '../services/fileDiscoveryService.js';
 import { GitService } from '../services/gitService.js';
@@ -804,6 +805,7 @@ export class Config {
     // Fashion-specific tools
     registerCoreTool(TrendAnalysisTool, this);
     registerCoreTool(ColorPaletteTool, this);
+    registerCoreTool(SizeConversionTool, this);
 
     await registry.discoverAllTools();
     return registry;

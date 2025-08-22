@@ -1,5 +1,5 @@
 {
-  "name": "@google/gemini-cli",
+  "name": "@fashion/ai-cli",
   "version": "0.1.21",
   "engines": {
     "node": ">=20.0.0"
@@ -51,6 +51,7 @@
     "clean": "node scripts/clean.js"
   },
   "bin": {
+    "fashion-ai": "bundle/gemini.js",
     "gemini": "bundle/gemini.js"
   },
   "files": [
