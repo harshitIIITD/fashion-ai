@@ -44,7 +44,13 @@ brew install gemini-cli
 #### System Requirements
 
 - Node.js version 20 or higher
-- macOS, Linux, or Windows
+- macOS, Linux (including Kali Linux), or Windows
+
+#### Platform-Specific Setup
+
+- **Kali Linux Users**: See our comprehensive [Kali Linux Setup Guide](./docs/kali-linux-setup.md) for detailed installation instructions, authentication setup, and troubleshooting
+- **General Linux**: Follow the standard installation methods below
+- **macOS/Windows**: Standard npm installation works out of the box
 
 ## Release Cadence and Tags
 
@@ -179,6 +185,14 @@ For Google Workspace accounts and other authentication methods, see the [authent
 ```bash
 fashion-ai
 ```
+
+#### Quick Setup for Kali Linux
+
+For Kali Linux users, we recommend following our [dedicated setup guide](./docs/kali-linux-setup.md) which covers:
+- Node.js 20+ installation on Kali
+- System dependencies and permissions
+- Authentication setup
+- Troubleshooting common issues
 
 #### Analyze fashion trends
 

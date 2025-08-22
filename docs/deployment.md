@@ -72,6 +72,10 @@ Contributors to the project will want to run the CLI directly from the source co
   gemini
   ```
 
+- **Platform-specific setup:**
+  - **Kali Linux users:** See the comprehensive [Kali Linux Setup Guide](./kali-linux-setup.md) for detailed instructions including Node.js installation, system dependencies, and troubleshooting.
+  - **Other Linux distributions:** Standard Node.js and npm installation typically works without issues.
+
 ---
 
 ### 4. Running the latest Gemini CLI commit from GitHub
