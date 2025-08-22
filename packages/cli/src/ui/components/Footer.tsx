@@ -122,11 +122,11 @@ export const Footer: React.FC<FooterProps> = ({
         )}
       </Box>
 
-      {/* Right Section: Gemini Label and Console Summary */}
+      {/* Right Section: Fashion AI Label and Console Summary */}
       <Box alignItems="center" paddingTop={isNarrow ? 1 : 0}>
         <Text color={theme.text.accent}>
           {isNarrow ? '' : ' '}
-          {model}{' '}
+          Fashion AI ({model}){' '}
           <ContextUsageDisplay
             promptTokenCount={promptTokenCount}
             model={model}
