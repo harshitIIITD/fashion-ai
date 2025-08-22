@@ -7,11 +7,13 @@ This document showcases the new fashion industry tools added to Fashion AI CLI.
 Fashion AI now includes 6 specialized tools for fashion industry professionals:
 
 ### Core Tools (Previously Implemented)
+
 1. **trend_analysis** - Seasonal trend analysis across categories and markets
-2. **color_palette** - Harmonious color scheme generation from inspiration sources  
+2. **color_palette** - Harmonious color scheme generation from inspiration sources
 3. **size_conversion** - Convert clothing sizes between different regional standards
 
 ### New Advanced Tools (Newly Added)
+
 4. **fabric_material_advisor** - Suggest appropriate fabrics based on season, garment type, and sustainability goals
 5. **mood_board_generator** - Create detailed mood board concepts for fashion collections
 6. **collection_curator** - Curate cohesive collections balancing creativity with commercial viability
@@ -27,7 +29,7 @@ fashion-ai -p "Analyze spring 2024 trends for women's apparel in North America"
 # Step 2: Generate color palette
 fashion-ai -p "Create a botanical-inspired color palette for spring collection with analogous harmony"
 
-# Step 3: Get fabric recommendations  
+# Step 3: Get fabric recommendations
 fashion-ai -p "Recommend fabrics for a dress in spring with high sustainability focus and mid-range budget"
 
 # Step 4: Create mood board concept
@@ -59,13 +61,15 @@ fashion-ai -p "Create a bohemian mood board with 'Desert Wanderer' theme for res
 ## Tool Capabilities
 
 ### Fabric & Material Advisor
+
 - Season-appropriate fabric recommendations
 - Sustainability scoring (1-10 scale)
 - Budget-conscious suggestions
 - Care instruction guidance
 - Alternative material exploration
 
-### Mood Board Generator  
+### Mood Board Generator
+
 - Comprehensive visual direction
 - Color story development
 - Texture and material guidance
@@ -73,6 +77,7 @@ fashion-ai -p "Create a bohemian mood board with 'Desert Wanderer' theme for res
 - Execution tips for implementation
 
 ### Collection Curator
+
 - Commercial strategy balancing
 - Hero pieces vs. volume drivers identification
 - Price tier optimization
@@ -84,7 +89,7 @@ fashion-ai -p "Create a bohemian mood board with 'Desert Wanderer' theme for res
 These tools work together to create a complete fashion design workflow:
 
 1. **Market Research** → Trend Analysis Tool
-2. **Color Development** → Color Palette Generator  
+2. **Color Development** → Color Palette Generator
 3. **Material Selection** → Fabric & Material Advisor
 4. **Visual Direction** → Mood Board Generator
 5. **Collection Planning** → Collection Curator

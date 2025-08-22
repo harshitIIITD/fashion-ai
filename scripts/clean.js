@@ -17,10 +17,36 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { rmSync, readFileSync } from 'fs';
+import { rmSync, readFileSync, readdirSync, statSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import { globSync } from 'glob';
+
+// Helper function to find files recursively without external dependencies
+function findFiles(dir, pattern, results = []) {
+  if (!existsSync(dir)) return results;
+
+  try {
+    const files = readdirSync(dir);
+    for (const file of files) {
+      const fullPath = join(dir, file);
+      try {
+        const stat = statSync(fullPath);
+        if (stat.isDirectory()) {
+          findFiles(fullPath, pattern, results);
+        } else if (file.match(pattern)) {
+          results.push(fullPath);
+        }
+      } catch (_e) {
+        // Skip files we can't access
+        continue;
+      }
+    }
+  } catch (_e) {
+    // Skip directories we can't access
+  }
+
+  return results;
+}
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -34,22 +60,24 @@ rmSync(join(root, 'packages/cli/src/generated/'), {
 });
 const RMRF_OPTIONS = { recursive: true, force: true };
 rmSync(join(root, 'bundle'), RMRF_OPTIONS);
+
 // Dynamically clean dist directories in all workspaces
 const rootPackageJson = JSON.parse(
   readFileSync(join(root, 'package.json'), 'utf-8'),
 );
 for (const workspace of rootPackageJson.workspaces) {
-  const packages = globSync(join(workspace, 'package.json'), { cwd: root });
-  for (const pkgPath of packages) {
-    const pkgDir = dirname(join(root, pkgPath));
+  const packageJsonFiles = findFiles(join(root, workspace), /^package\.json$/);
+  for (const pkgPath of packageJsonFiles) {
+    const pkgDir = dirname(pkgPath);
     rmSync(join(pkgDir, 'dist'), RMRF_OPTIONS);
   }
 }
 
 // Clean up vsix files in vscode-ide-companion
-const vsixFiles = globSync('packages/vscode-ide-companion/*.vsix', {
-  cwd: root,
-});
+const vsixFiles = findFiles(
+  join(root, 'packages/vscode-ide-companion'),
+  /\.vsix$/,
+);
 for (const vsixFile of vsixFiles) {
-  rmSync(join(root, vsixFile), RMRF_OPTIONS);
+  rmSync(vsixFile, RMRF_OPTIONS);
 }
