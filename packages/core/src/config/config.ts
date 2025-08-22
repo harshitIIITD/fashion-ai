@@ -27,6 +27,9 @@ import { WebSearchTool } from '../tools/web-search.js';
 import { TrendAnalysisTool } from '../tools/trend-analysis.js';
 import { ColorPaletteTool } from '../tools/color-palette.js';
 import { SizeConversionTool } from '../tools/size-conversion.js';
+import { FabricMaterialAdvisorTool } from '../tools/fabric-material-advisor.js';
+import { MoodBoardGeneratorTool } from '../tools/mood-board-generator.js';
+import { CollectionCuratorTool } from '../tools/collection-curator.js';
 import { GeminiClient } from '../core/client.js';
 import { FileDiscoveryService } from '../services/fileDiscoveryService.js';
 import { GitService } from '../services/gitService.js';
@@ -801,11 +804,14 @@ export class Config {
     registerCoreTool(ShellTool, this);
     registerCoreTool(MemoryTool);
     registerCoreTool(WebSearchTool, this);
-    
+
     // Fashion-specific tools
     registerCoreTool(TrendAnalysisTool, this);
     registerCoreTool(ColorPaletteTool, this);
     registerCoreTool(SizeConversionTool, this);
+    registerCoreTool(FabricMaterialAdvisorTool, this);
+    registerCoreTool(MoodBoardGeneratorTool, this);
+    registerCoreTool(CollectionCuratorTool, this);
 
     await registry.discoverAllTools();
     return registry;

@@ -29,6 +29,7 @@ This is a demo workspace to showcase Fashion AI CLI capabilities.
 ## Fashion Expertise Built-in
 
 Fashion AI understands:
+
 - Seasonal fashion calendars
 - Color theory and harmony
 - Target market demographics

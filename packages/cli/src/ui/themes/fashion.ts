@@ -10,19 +10,19 @@ import { SemanticColors } from './semantic-tokens.js';
 // Fashion-inspired color palette
 export const fashionTheme: ColorsTheme = {
   type: 'dark',
-  Background: '#1A1A1A',          // Deep charcoal for elegance
-  Foreground: '#F5F5F5',          // Crisp white for text
-  LightBlue: '#D4AFDF',           // Soft lavender
-  AccentBlue: '#FF69B4',          // Hot pink - fashion statement
-  AccentPurple: '#9370DB',        // Medium orchid
-  AccentCyan: '#20B2AA',          // Light sea green - mint
-  AccentGreen: '#98FB98',         // Pale green - nature inspired
-  AccentYellow: '#FFD700',        // Gold - luxury accent
-  AccentRed: '#DC143C',           // Crimson - bold statement
-  DiffAdded: '#2D5A2D',           // Forest green for additions
-  DiffRemoved: '#5A2D2D',         // Burgundy for removals
-  Comment: '#B19CD9',             // Light purple for comments
-  Gray: '#808080',                // Neutral gray
+  Background: '#1A1A1A', // Deep charcoal for elegance
+  Foreground: '#F5F5F5', // Crisp white for text
+  LightBlue: '#D4AFDF', // Soft lavender
+  AccentBlue: '#FF69B4', // Hot pink - fashion statement
+  AccentPurple: '#9370DB', // Medium orchid
+  AccentCyan: '#20B2AA', // Light sea green - mint
+  AccentGreen: '#98FB98', // Pale green - nature inspired
+  AccentYellow: '#FFD700', // Gold - luxury accent
+  AccentRed: '#DC143C', // Crimson - bold statement
+  DiffAdded: '#2D5A2D', // Forest green for additions
+  DiffRemoved: '#5A2D2D', // Burgundy for removals
+  Comment: '#B19CD9', // Light purple for comments
+  Gray: '#808080', // Neutral gray
   GradientColors: ['#FF69B4', '#9370DB', '#20B2AA'], // Hot pink to orchid to mint
 };
 

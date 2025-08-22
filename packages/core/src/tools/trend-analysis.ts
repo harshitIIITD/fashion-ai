@@ -4,7 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BaseDeclarativeTool, ToolResult, ToolInvocation, Kind } from './tools.js';
+import {
+  BaseDeclarativeTool,
+  ToolResult,
+  ToolInvocation,
+  Kind,
+} from './tools.js';
 import { Config } from '../config/config.js';
 
 export interface TrendAnalysisParams {
@@ -47,7 +52,8 @@ export class TrendAnalysisTool extends BaseDeclarativeTool<
         properties: {
           season: {
             type: 'string',
-            description: 'Season for trend analysis (Spring, Summer, Fall, Winter, or Year-round)',
+            description:
+              'Season for trend analysis (Spring, Summer, Fall, Winter, or Year-round)',
             enum: ['Spring', 'Summer', 'Fall', 'Winter', 'Year-round'],
           },
           category: {
@@ -55,7 +61,7 @@ export class TrendAnalysisTool extends BaseDeclarativeTool<
             description: 'Fashion category to analyze',
             enum: [
               'Womens Apparel',
-              'Mens Apparel', 
+              'Mens Apparel',
               'Accessories',
               'Footwear',
               'Activewear',
@@ -80,7 +86,9 @@ export class TrendAnalysisTool extends BaseDeclarativeTool<
     );
   }
 
-  createInvocation(params: TrendAnalysisParams): ToolInvocation<TrendAnalysisParams, TrendAnalysisResult> {
+  createInvocation(
+    params: TrendAnalysisParams,
+  ): ToolInvocation<TrendAnalysisParams, TrendAnalysisResult> {
     return {
       params,
       getDescription: () => {
@@ -94,17 +102,23 @@ export class TrendAnalysisTool extends BaseDeclarativeTool<
     };
   }
 
-  private async execute(params: TrendAnalysisParams): Promise<TrendAnalysisResult> {
+  private async execute(
+    params: TrendAnalysisParams,
+  ): Promise<TrendAnalysisResult> {
     // Mock trend analysis - in a real implementation, this would connect to fashion APIs,
     // analyze social media data, runway shows, etc.
-    
+
     const mockTrends = this.generateMockTrends(params);
     const marketInsights = this.generateMarketInsights(params);
     const recommendations = this.generateRecommendations(params);
 
     const result: TrendAnalysisResult = {
       llmContent: `Fashion Trend Analysis for ${params.season} ${params.category}`,
-      returnDisplay: this.formatTrendResults(mockTrends, marketInsights, recommendations),
+      returnDisplay: this.formatTrendResults(
+        mockTrends,
+        marketInsights,
+        recommendations,
+      ),
       trends: mockTrends,
       market_insights: marketInsights,
       recommendations,
@@ -123,18 +137,33 @@ export class TrendAnalysisTool extends BaseDeclarativeTool<
     };
 
     const trendNames = {
-      'Womens Apparel': ['Oversized Blazers', 'Midi Dresses', 'Wide-leg Trousers'],
+      'Womens Apparel': [
+        'Oversized Blazers',
+        'Midi Dresses',
+        'Wide-leg Trousers',
+      ],
       'Mens Apparel': ['Relaxed Tailoring', 'Vintage Band Tees', 'Cargo Pants'],
-      'Accessories': ['Statement Earrings', 'Belt Bags', 'Chunky Chains'],
-      'Footwear': ['Platform Sneakers', 'Combat Boots', 'Loafers'],
+      Accessories: ['Statement Earrings', 'Belt Bags', 'Chunky Chains'],
+      Footwear: ['Platform Sneakers', 'Combat Boots', 'Loafers'],
     };
 
-    const trends = (trendNames[params.category as keyof typeof trendNames] || ['Contemporary Styles']).map((name, _index) => ({
+    const trends = (
+      trendNames[params.category as keyof typeof trendNames] || [
+        'Contemporary Styles',
+      ]
+    ).map((name, _index) => ({
       name,
-      confidence: 0.8 + (Math.random() * 0.2),
+      confidence: 0.8 + Math.random() * 0.2,
       description: `${name} are trending this ${params.season.toLowerCase()} with modern silhouettes and innovative designs.`,
-      colors: seasonalColors[params.season as keyof typeof seasonalColors] || seasonalColors['Year-round'],
-      materials: ['Organic Cotton', 'Recycled Polyester', 'Linen', 'Wool Blend'],
+      colors:
+        seasonalColors[params.season as keyof typeof seasonalColors] ||
+        seasonalColors['Year-round'],
+      materials: [
+        'Organic Cotton',
+        'Recycled Polyester',
+        'Linen',
+        'Wool Blend',
+      ],
       target_audience: params.age_group || 'All Demographics',
     }));
 
@@ -142,9 +171,11 @@ export class TrendAnalysisTool extends BaseDeclarativeTool<
   }
 
   private generateMarketInsights(params: TrendAnalysisParams): string {
-    return `The ${params.category} market for ${params.season} shows strong growth potential. ` +
-           `Sustainability and comfort remain key drivers, with a 25% increase in demand for eco-friendly materials. ` +
-           `${params.market || 'Global'} consumers are prioritizing versatile pieces that transition between seasons.`;
+    return (
+      `The ${params.category} market for ${params.season} shows strong growth potential. ` +
+      `Sustainability and comfort remain key drivers, with a 25% increase in demand for eco-friendly materials. ` +
+      `${params.market || 'Global'} consumers are prioritizing versatile pieces that transition between seasons.`
+    );
   }
 
   private generateRecommendations(params: TrendAnalysisParams): string[] {
@@ -157,16 +188,20 @@ export class TrendAnalysisTool extends BaseDeclarativeTool<
     ];
   }
 
-  private formatTrendResults(trends: Array<{
-    name: string;
-    confidence: number;
-    description: string;
-    colors: string[];
-    materials: string[];
-    target_audience: string;
-  }>, insights: string, recommendations: string[]): string {
+  private formatTrendResults(
+    trends: Array<{
+      name: string;
+      confidence: number;
+      description: string;
+      colors: string[];
+      materials: string[];
+      target_audience: string;
+    }>,
+    insights: string,
+    recommendations: string[],
+  ): string {
     let result = `# Fashion Trend Analysis\n\n`;
-    
+
     result += `## Key Trends\n`;
     trends.forEach((trend, index) => {
       result += `### ${index + 1}. ${trend.name}\n`;
@@ -177,7 +212,7 @@ export class TrendAnalysisTool extends BaseDeclarativeTool<
     });
 
     result += `## Market Insights\n${insights}\n\n`;
-    
+
     result += `## Recommendations\n`;
     recommendations.forEach((rec, index) => {
       result += `${index + 1}. ${rec}\n`;
