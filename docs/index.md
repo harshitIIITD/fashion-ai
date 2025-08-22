@@ -11,6 +11,9 @@ Gemini CLI brings the capabilities of Gemini models to your terminal in an inter
 This documentation is organized into the following sections:
 
 - **[Execution and Deployment](./deployment.md):** Information for running Gemini CLI.
+- **Platform-Specific Setup:**
+  - **[Kali Linux Setup Guide](./kali-linux-setup.md):** Comprehensive setup instructions for Kali Linux users.
+  - **[Kali Linux Quick Start](./kali-linux-quickstart.md):** Essential commands for getting started on Kali Linux.
 - **[Architecture Overview](./architecture.md):** Understand the high-level design of Gemini CLI, including its components and how they interact.
 - **CLI Usage:** Documentation for `packages/cli`.
   - **[CLI Introduction](./cli/index.md):** Overview of the command-line interface.
